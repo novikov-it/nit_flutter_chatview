@@ -119,11 +119,11 @@ extension ChatViewStateTitleExtension on String? {
       case ChatViewState.hasMessages:
         return this ?? '';
       case ChatViewState.noData:
-        return this ?? 'No Messages';
+        return this ?? PackageStrings.noMessages;
       case ChatViewState.loading:
         return this ?? '';
       case ChatViewState.error:
-        return this ?? 'Something went wrong !!';
+        return this ?? PackageStrings.stateError;
     }
   }
 }

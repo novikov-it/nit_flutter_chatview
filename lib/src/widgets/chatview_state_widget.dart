@@ -1,5 +1,6 @@
 import 'package:chatview/chatview.dart';
 import 'package:chatview/src/extensions/extensions.dart';
+import 'package:chatview/src/utils/package_strings.dart';
 import 'package:flutter/material.dart';
 
 class ChatViewStateWidget extends StatelessWidget {
@@ -55,15 +56,16 @@ class ChatViewStateWidget extends StatelessWidget {
                   chatViewStateWidgetConfig?.reloadButton == null &&
                   (chatViewState.isError || chatViewState.noMessages)) ...[
                 const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: onReloadButtonTap,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        chatViewStateWidgetConfig?.reloadButtonColor ??
-                            const Color(0xffEE5366),
-                  ),
-                  child: const Text('Reload'),
-                )
+                if (onReloadButtonTap != null)
+                  ElevatedButton(
+                    onPressed: onReloadButtonTap,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          chatViewStateWidgetConfig?.reloadButtonColor ??
+                              const Color(0xffEE5366),
+                    ),
+                    child: const Text(PackageStrings.reload),
+                  )
               ]
             ],
           ),
