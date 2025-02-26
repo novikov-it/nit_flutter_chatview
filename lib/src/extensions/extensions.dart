@@ -50,7 +50,7 @@ extension TimeDifference on DateTime {
     } else if (differenceInDays <= 1 && differenceInDays >= -1) {
       return PackageStrings.yesterday;
     } else {
-      final DateFormat formatter = DateFormat(chatSeparatorDatePattern);
+      final DateFormat formatter = DateFormat(chatSeparatorDatePattern, 'ru');
       return formatter.format(this);
     }
   }
