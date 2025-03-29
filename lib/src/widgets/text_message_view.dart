@@ -19,10 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:flutter/material.dart';
-
 import 'package:chatview/src/extensions/extensions.dart';
 import 'package:chatview/src/models/models.dart';
+import 'package:flutter/material.dart';
+import 'package:linkable/linkable.dart';
 
 import '../utils/constants/constants.dart';
 import 'link_preview.dart';
@@ -93,14 +93,23 @@ class TextMessageView extends StatelessWidget {
                   linkPreviewConfig: _linkPreviewConfig,
                   url: textMessage,
                 )
-              : Text(
-                  textMessage,
+              : Linkable(
+                  text: textMessage,
+                  textColor: _textStyle?.color ?? Colors.white,
                   style: _textStyle ??
                       textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontSize: 16,
                       ),
                 ),
+          // Text(
+          //     '?? $textMessage',
+          //     style: _textStyle ??
+          //         textTheme.bodyMedium!.copyWith(
+          //           color: Colors.white,
+          //           fontSize: 16,
+          //         ),
+          // ),
         ),
         if (message.reaction.reactions.isNotEmpty)
           ReactionWidget(
